@@ -1,6 +1,7 @@
 node_modules
 oscnews*
 cloudai/
+cloudai.zip
 !OSCNews.module.less
 
 .DS_Store
