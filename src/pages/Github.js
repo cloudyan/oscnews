@@ -63,18 +63,21 @@ export default class Github extends Component {
     this.setState({ loading: true });
     const getDate = type === 'select' ? fetchTimely(this.getURL()) : fetchInterval(this.getURL(), 3, 'github-trending');
     getDate.then((response) => {
-      response.replace(/<body\b[^>]*>([\s\S]*?)<\/body>/gi, (node, body) => {
-        response = body;
-        return node;
-      });
-      response = response.replace(/<a\b[^>]+\bhref="([^"]*)"[^>]*>([\s\S]*?)<\/a>/gi, (node, url, text) => {
-        if (/^\//.test(url)) {
-          node = `<a href="https://github.com${url}">${text}</a>`;
-        }
-        return node;
-      });
+      // response.replace(/<body\b[^>]*>([\s\S]*?)<\/body>/gi, (node, body) => {
+      //   response = body;
+      //   return node;
+      // });
+      // response = response.replace(/<a\b[^>]+\bhref="([^"]*)"[^>]*>([\s\S]*?)<\/a>/gi, (node, url, text) => {
+      //   if (/^\//.test(url)) {
+      //     node = `<a href="https://github.com${url}">${text}</a>`;
+      //   }
+      //   return node;
+      // });
       const resultData = [];
+      console.log('get github-trending', response)
+      // debugger
       const $ = cheerio.load(response);
+
       $('.Box-row').each((idx, item) => {
         // 不需要头像，避免被和谐
         /* eslint-disable */
@@ -136,7 +139,7 @@ export default class Github extends Component {
     return (
       <div className={styles.warpper}>
         <div className={styles.header}>
-          <span className={styles.title}><a target="_blank" rel="noopener noreferrer" href="http://github.com/trending">Github Trending</a></span>
+          <span className={styles.title}><a target="_blank" rel="noopener noreferrer" href="https://github.com/trending">Github Trending</a></span>
           <div className={styles.select}>
             <Loading visible={this.state.loading} />
             <Select onSelect={this.onSelect.bind(this, 'since')} value={this.state.since} option={this.state.option} />
