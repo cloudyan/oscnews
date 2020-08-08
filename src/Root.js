@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Container from './component/container';
+import Container from './component/Container';
 import { getNavData } from './Route';
 
 export default class Root extends Component {
