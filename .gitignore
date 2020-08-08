@@ -1,5 +1,6 @@
 node_modules
 oscnews*
+!OSCNews.module.less
 
 .DS_Store
 .cache
