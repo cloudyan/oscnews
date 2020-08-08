@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Dropdown from './Dropdown';
 import Switch from './Switch';
-import logo from '../assets/oschina.svg';
+import logo from '../assets/cloudai-logo.png';
 import chromeApp from '../assets/chrome-app.svg';
 // import gitee from '../assets/gitee.svg';
 // import github from '../assets/github.svg';
@@ -42,21 +42,21 @@ export default class Header extends Component {
         {
           title: this.renderSiwtchOption.bind(this, 'isHideNav'),
         },
-        {
-          title: '关于应用',
-          divider: true,
-          line: true,
-        },
-        {
-          title: '问题帮助',
-          url: 'https://github.com/jaywcjlove/oscnews/issues',
-          target: '_blank',
-        },
-        {
-          title: '应用主页',
-          url: 'https://github.com/jaywcjlove/oscnews',
-          target: '_blank',
-        },
+        // {
+        //   title: '关于应用',
+        //   divider: true,
+        //   line: true,
+        // },
+        // {
+        //   title: '问题帮助',
+        //   url: 'https://github.com/jaywcjlove/oscnews/issues',
+        //   target: '_blank',
+        // },
+        // {
+        //   title: '应用主页',
+        //   url: 'https://github.com/jaywcjlove/oscnews',
+        //   target: '_blank',
+        // },
       ],
     };
     this.renderSiwtchOption = this.renderSiwtchOption.bind(this);
@@ -111,8 +111,8 @@ export default class Header extends Component {
       <div className={styles.warpper} style={{ marginTop: conf.isHideNav ? 0 : -50 }}>
         {conf.isHideNav && <div onClick={this.onDropDown.bind(this)} className={styles.dropDown} />}
         <div className={styles.logo} >
-          <a href="http://www.oschina.net/" rel="noopener noreferrer" target="_blank" >
-            <img title="开源中国" alt="开源中国" src={logo} />
+          <a href="https://cloudai.net/" rel="noopener noreferrer" target="_blank" >
+            <img title="cloudai.net" alt="cloudai.net" src={logo} />
           </a>
         </div>
         <div className={styles.menu}>
